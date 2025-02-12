@@ -1,0 +1,114 @@
+
+pragma solidity ^0.8.20;
+
+contract InstilledInteroperability {
+    struct Blockchain {
+        string chainName;
+        uint256 chainId;
+        string[] chainRpcUrls;
+        string chainCurrency;
+    }
+
+    struct TokenAsset {
+        string tokenAssetName;
+        uint8 tokenAssetDecimal;
+        string tokenAssetSymbol;
+        address tokenAssetContractAddress;
+        address ownerAddress;
+    }
+__________________________________________
+
+    mapping(uint256 => Blockchain) public verifiedBlockchains;
+    mapping(uint256 => mapping(string => TokenAsset)) public verifiedTokenAssets;
+__________________________________________
+
+    constructor() {
+verifiedBlockchains[1] = Blockchain(
+        chainName: "Ethereum",
+        chainId: 1,
+        chainRpcUrls:[ ["https://eth.llamarpc.com"] , ["https://eth.blockrazor.xyz"], ["https://ethereum-rpc.publicnode.com"], ["https://eth-pokt.nodies.app"],
+["https://eth.meowrpc.com"] ],
+        chainCurrency: "ETH" );
+    
+verifiedTokenAssets[1] = TokenAsset( 
+        tokenAssetName : "United States Dollar Tether",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDT"
+        tokenAssetContractAddress : 0xdAC17F958D2ee523a2206206994597C13D831ec7,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+
+verifiedTokenAssets[2] = TokenAsset( 
+        tokenAssetName : "United States Dollar Coin",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDC"
+        tokenAssetContractAddress : 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+
+verifiedTokenAssets[3] = TokenAsset( 
+        tokenAssetName : "Paypal United States Dollar",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "PYUSD"
+        tokenAssetContractAddress : 0x6c3ea9036406852006290770BEdFcAbA0e23A0e8,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA ); }
+
+constructor() {
+verifiedBlockchains[2] = Blockchain(
+        chainName: "Binance",
+        chainId: 56,
+        chainRpcUrls:[ ["https://rpc.ankr.com/bsc"] , ["https://binance.llamarpc.com"], ["https://bsc-pokt.nodies.app"], ["https://bsc.drpc.org"], ["https://bsc.blockrazor.xyz"] ],
+        chainCurrency: "BNB" );
+    
+verifiedTokenAssets[1B] = TokenAsset( 
+        tokenAssetName : "United States Dollar Tether",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDT"
+        tokenAssetContractAddress : 0x55d398326f99059fF775485246999027B3197955,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+
+verifiedTokenAssets[2B] = TokenAsset( 
+        tokenAssetName : "United States Dollar Coin",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDC"
+        tokenAssetContractAddress : 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );  }
+
+
+__________________________________________
+
+
+constructor() {
+verifiedBlockchains[3] = Blockchain(
+        chainName: "Polygon",
+        chainId: 137,
+        chainRpcUrls:[ ["https://polygon.llamarpc.com"] , ["https://rpc.ankr.com/polygon"], ["https://polygon-pokt.nodies.app"], ["wss://polygon-bor-rpc.publicnode.com"], ["https://rpc-mainnet.matic.quiknode.pro"] ],
+        chainCurrency: "POL" );
+    
+verifiedTokenAssets[1C] = TokenAsset( 
+        tokenAssetName : "United States Dollar Tether",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDT"
+        tokenAssetContractAddress : 0xc2132D05D31c914a87C6611C10748AEb04B58e8F,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+
+verifiedTokenAssets[2C] = TokenAsset( 
+        tokenAssetName : "United States Dollar Coin",
+        tokenAssetDecimal : 6,
+        tokenAssetSymbol : "USDC"
+        tokenAssetContractAddress : 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359,
+        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );  }
+
+
+__________________________________________
+
+
+    function determineOperation(uint256 fromChainId, uint256 toChainId, string memory tokenSymbol) public view returns (string memory) {
+        TokenAsset memory fromToken = verifiedTokenAssets[fromChainId][tokenSymbol];
+        TokenAsset memory toToken = verifiedTokenAssets[toChainId][tokenSymbol];
+        
+        if (keccak256(bytes(fromToken.tokenAssetSymbol)) == keccak256(bytes(toToken.tokenAssetSymbol))) {
+            return "crossChainTransfer";
+        } else {
+            return "crossChainSwap";
+        }
+    }
+}
