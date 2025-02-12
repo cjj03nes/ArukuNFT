@@ -26,6 +26,7 @@ __________________________________________
 verifiedBlockchains[1] = Blockchain(
         chainName: "Ethereum",
         chainId: 1,
+        blockExplorer: ,
         chainRpcUrls:[ ["https://eth.llamarpc.com"] , ["https://eth.blockrazor.xyz"], ["https://ethereum-rpc.publicnode.com"], ["https://eth-pokt.nodies.app"],
 ["https://eth.meowrpc.com"] ],
         chainCurrency: "ETH" );
@@ -53,24 +54,30 @@ verifiedTokenAssets[3] = TokenAsset(
 
 constructor() {
 verifiedBlockchains[2] = Blockchain(
-        chainName: "Binance",
-        chainId: 56,
-        chainRpcUrls:[ ["https://rpc.ankr.com/bsc"] , ["https://binance.llamarpc.com"], ["https://bsc-pokt.nodies.app"], ["https://bsc.drpc.org"], ["https://bsc.blockrazor.xyz"] ],
-        chainCurrency: "BNB" );
+        chainName: "Base",
+        chainId: 8453,
+        blockExplorer: 
+        chainRpcUrls:[ ["https://base-rpc.publicnode.com"] , ["https://base.meowrpc.com"], ["wss://base.callstaticrpc.com"], ["https://base-pokt.nodies.app"], ["https://0xrpc.io/base"] ],
+        chainCurrency: "ETH" );
+
+
+
+
+
+
     
 verifiedTokenAssets[1B] = TokenAsset( 
         tokenAssetName : "United States Dollar Tether",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDT"
-        tokenAssetContractAddress : 0x55d398326f99059fF775485246999027B3197955,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+        tokenAssetContractAddress : 0x  ;
 
 verifiedTokenAssets[2B] = TokenAsset( 
         tokenAssetName : "United States Dollar Coin",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDC"
-        tokenAssetContractAddress : 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );  }
+        tokenAssetContractAddress : 0x ;
+        }
 
 
 __________________________________________
