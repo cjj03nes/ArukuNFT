@@ -1,6 +1,11 @@
 
 pragma solidity ^0.8.20;
 
+// CrossChain between ETH, BASE, AND STELLAR
+
+
+
+
 contract InstilledInteroperability {
     struct Blockchain {
         string chainName;
@@ -26,7 +31,7 @@ __________________________________________
 verifiedBlockchains[1] = Blockchain(
         chainName: "Ethereum",
         chainId: 1,
-        blockExplorer: ,
+        blockExplorer: "https://etherscan.io/" ,
         chainRpcUrls:[ ["https://eth.llamarpc.com"] , ["https://eth.blockrazor.xyz"], ["https://ethereum-rpc.publicnode.com"], ["https://eth-pokt.nodies.app"],
 ["https://eth.meowrpc.com"] ],
         chainCurrency: "ETH" );
@@ -35,34 +40,22 @@ verifiedTokenAssets[1] = TokenAsset(
         tokenAssetName : "United States Dollar Tether",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDT"
-        tokenAssetContractAddress : 0xdAC17F958D2ee523a2206206994597C13D831ec7,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+        tokenAssetContractAddress : 0x );
 
 verifiedTokenAssets[2] = TokenAsset( 
         tokenAssetName : "United States Dollar Coin",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDC"
-        tokenAssetContractAddress : 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
-
-verifiedTokenAssets[3] = TokenAsset( 
-        tokenAssetName : "Paypal United States Dollar",
-        tokenAssetDecimal : 6,
-        tokenAssetSymbol : "PYUSD"
-        tokenAssetContractAddress : 0x6c3ea9036406852006290770BEdFcAbA0e23A0e8,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA ); }
+        tokenAssetContractAddress : 0x );
+ }
 
 constructor() {
 verifiedBlockchains[2] = Blockchain(
         chainName: "Base",
         chainId: 8453,
-        blockExplorer: 
+        blockExplorer: "https://basescan.org/",
         chainRpcUrls:[ ["https://base-rpc.publicnode.com"] , ["https://base.meowrpc.com"], ["wss://base.callstaticrpc.com"], ["https://base-pokt.nodies.app"], ["https://0xrpc.io/base"] ],
         chainCurrency: "ETH" );
-
-
-
-
 
 
     
@@ -70,13 +63,13 @@ verifiedTokenAssets[1B] = TokenAsset(
         tokenAssetName : "United States Dollar Tether",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDT"
-        tokenAssetContractAddress : 0x  ;
+        tokenAssetContractAddress : 0x  );
 
 verifiedTokenAssets[2B] = TokenAsset( 
         tokenAssetName : "United States Dollar Coin",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDC"
-        tokenAssetContractAddress : 0x ;
+        tokenAssetContractAddress : 0x );
         }
 
 
@@ -85,24 +78,23 @@ __________________________________________
 
 constructor() {
 verifiedBlockchains[3] = Blockchain(
-        chainName: "Polygon",
-        chainId: 137,
-        chainRpcUrls:[ ["https://polygon.llamarpc.com"] , ["https://rpc.ankr.com/polygon"], ["https://polygon-pokt.nodies.app"], ["wss://polygon-bor-rpc.publicnode.com"], ["https://rpc-mainnet.matic.quiknode.pro"] ],
-        chainCurrency: "POL" );
+        chainName: "Stellar Network",
+        chainId: S5,
+        blockExplorer: "https://stellar.expert/explorer/public",
+        chainRpcUrls:[ ["https://svc.blockdaemon.com/stellar/mainnet/native/soroban-rpc"] , ["https://rpc.ankr.com/stellar_soroban"], ["https://soroban-rpc.mainnet.stellar.gateway.fm"], ["https://stellar-soroban-public.nodies.app"], ["https://mainnet.sorobanrpc.com"] ],
+        chainCurrency: "XLM" );
     
 verifiedTokenAssets[1C] = TokenAsset( 
         tokenAssetName : "United States Dollar Tether",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDT"
-        tokenAssetContractAddress : 0xc2132D05D31c914a87C6611C10748AEb04B58e8F,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );
+        tokenAssetContractAddress : 0x );
 
 verifiedTokenAssets[2C] = TokenAsset( 
         tokenAssetName : "United States Dollar Coin",
         tokenAssetDecimal : 6,
         tokenAssetSymbol : "USDC"
-        tokenAssetContractAddress : 0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359,
-        ownerAddress : 0x1bf1e9DDe9A4A02c3FC43df1C4ECc1D0B2E64CcA );  }
+        tokenAssetContractAddress : 0x );  }
 
 
 __________________________________________
